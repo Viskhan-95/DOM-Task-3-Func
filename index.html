@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>интукод</title>
+</head>
+<body>
+    <div id="main">
+        <ul id="list">
+            <li>html</li>
+            <li>css</li>
+        </ul>
+    </div>
+    <div id="copyright">(c) INTOCODE</div> 
+
+    <script>
+        addDivWorkDOM();
+        addLinkDOM();
+        colorBody ('lightBlue');
+        addLi('js');
+        removeDiv('copyright');
+
+        function addDivWorkDOM() {
+            const h2 = document.createElement('h2');
+            h2.textContent = 'Работа с DOM';
+            const divMain = document.getElementById('main');
+            divMain.insertAdjacentElement("beforebegin", h2);
+        }
+
+        function addLinkDOM() {
+            const a = document.createElement('a');
+            a.href = 'https://ru.wikipedia.org/wiki/Document_Object_Model';
+            a.appendChild(document.createTextNode('DOM'));
+
+            const divMain = document.getElementById('main');
+            divMain.insertAdjacentElement("beforeend", a);
+        }
+
+        function colorBody (color) {
+            document.body.style.background = color;
+        }
+
+        function addLi(text) {
+            const li = document.createElement('li');
+            li.textContent = text;
+
+            const findUl = document.getElementById('list');
+            findUl.insertAdjacentElement("beforeend", li);
+        }
+
+        function removeDiv(nameDiv) {
+            const findDiv = document.getElementById(nameDiv);
+            findDiv.remove();
+        }
+    </script>
+</body>
+</html>
